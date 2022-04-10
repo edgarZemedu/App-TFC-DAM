@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="usuario">Usuario</string>
+    <string name="nombre">Nombre del establecimiento</string>
+    <string name="telepono">Teléfono</string>
+    <string name="numero">Número de teléfono</string>
+    <string name="localizacion">Ciudad</string>
+    <string name="tienesNegocio">¿Tienes algun negocio?</string>
+    <string name="notengo">No tengo</string>
+    <string name="sitengo">Sí tengo</string>
+    <string name="correo">Dirección de correo</string>
+    <string name="iniciar">INICIAR</string>
+    <string name="registrarse">Registrarme</string>
+
+    <string name="traducido_a">Traducido a:</string>
+    <string name="frances">Francés</string>
+    <string name="ingles">Inglés</string>
+    <string name="error_noAlbum">Debe introducir el nombre del álbum</string>
+    <string name="error_noArtista">Debe introducir un nombre de artista</string>
+    <string name="no_app_error">App no encontrada</string>
+    <string name="terminos">Acepto todos los terminos y condiciones</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorFondo"
+    tools:context=".Home.IniciarSesion">
+
+
+    <TextView
+        android:id="@+id/tvNegocio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="@string/tienesNegocio"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/tvNegocio"
+        app:layout_constraintStart_toStartOf="@+id/tvNegocio"
+        app:layout_constraintTop_toBottomOf="@+id/tvNegocio"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notengo"
+            app:chipStrokeWidth="2dp"
+            style="@style/estiloChips"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipSi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sitengo"
+            app:chipStrokeWidth="2dp"
+            style="@style/estiloChips"/>
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <!--NO HACEPTA CON ESTOS ATRIBUTOS DENTRO DE LOS CHIPS
+                android:backgroundTint="@color/verde"
+                app:chipStrokeColor="@color/grey"
+                -->
+
+
+    <Button
+        android:id="@+id/iniciar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:text="@string/iniciar"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvNegocio" />
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="260dp"
+        android:layout_height="433dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:padding="7dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup">
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/basic_padding"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:background="@color/grey"
+            android:ems="10"
+            android:hint="@string/nombre"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/basic_padding"
+            android:layout_below="@+id/editTextTextPersonName"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/marginTop"
+            android:background="@color/grey"
+            android:ems="10"
+            android:hint="@string/numero"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/basic_padding"
+            android:layout_below="@+id/editTextPhone"
+            android:layout_alignStart="@+id/editTextPhone"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/marginTop"
+            android:background="@color/grey"
+            android:ems="10"
+            android:hint="@string/correo"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/basic_padding"
+            android:layout_below="@+id/editTextTextEmailAddress"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/marginTop"
+            android:background="@color/grey"
+            android:ems="10"
+            android:hint="@string/localizacion"
+            android:inputType="textPersonName" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/basic_padding"
+            android:layout_below="@id/editTextTextPersonName2"
+            android:background="@color/grey"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/marginTop"
+            android:text="Acepto la politica de privacidad de TooGood" />
+
+        <Button
+            android:id="@+id/registrarme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkBox"
+            android:background="@color/grey"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="40dp"
+            android:text="@string/registrarse"/>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
