@@ -1,14 +1,32 @@
 package com.example.myapplication.Fragments;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.myapplication.Adapter.ConocenosAdapter;
+import com.example.myapplication.Entidades.ComoFunciona;
+import com.example.myapplication.Home.AccionesFragments;
+import com.example.myapplication.Home.IniciarSesion;
+import com.example.myapplication.Home.MainActivity;
 import com.example.myapplication.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,7 +34,12 @@ import com.example.myapplication.R;
  * create an instance of this fragment.
  */
 public class FragmentPerfil extends Fragment {
-/*
+
+
+    View vista;
+    LinearLayout linearPrincipal,linearComoFunciona, cuentaL,conocenosL,ayudaL,terminosL,unirmeL;
+    Dialog miDialogo;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,16 +52,6 @@ public class FragmentPerfil extends Fragment {
     public FragmentPerfil() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentPerfil.
-     */
-    /*
     // TODO: Rename and change types and number of parameters
     public static FragmentPerfil newInstance(String param1, String param2) {
         FragmentPerfil fragment = new FragmentPerfil();
@@ -57,13 +70,150 @@ public class FragmentPerfil extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-*/
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false);
+        vista = inflater.inflate(R.layout.fragment_perfil, container, false);
+
+        cuentaL = vista.findViewById(R.id.cuentaL);
+        conocenosL = vista.findViewById(R.id.conocenosL);
+        ayudaL = vista.findViewById(R.id.ayudaL);
+        terminosL = vista.findViewById(R.id.terminosL);
+        unirmeL = vista.findViewById(R.id.unirmeL);
+        linearPrincipal = vista.findViewById(R.id.linearPrincipal);
+        linearComoFunciona = vista.findViewById(R.id.linearComoFunciona);
+
+        linearPrincipal.setVisibility(View.VISIBLE);
+        linearComoFunciona.setVisibility(View.INVISIBLE);
+
+        cuentaL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.app.AlertDialog.Builder alertaCuenta = new AlertDialog.Builder(getContext());
+                alertaCuenta.setMessage("No existe ninguna cuenta")
+                            .setCancelable(true);
+                AlertDialog color = alertaCuenta.create();
+                color.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialogInterface) {
+                        color.getWindow().setBackgroundDrawableResource(R.color.colorFondo);
+                    }
+                });
+                color.show();
+            }
+        });
+
+        conocenosL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder ad = new AlertDialog.Builder(getContext());
+                ad.setView(inflater.inflate(R.layout.conocenos,null));
+                ad.show();
+            }
+        });
+        ayudaL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final CharSequence[] listaAyuda = {"Como funciona?", "Quiero unirme","Más sobre TooGooToGo", "No has encontrado lo que buscabas"};
+                AlertDialog.Builder alertaCuenta = new AlertDialog.Builder(getContext(),AlertDialog.THEME_DEVICE_DEFAULT_DARK);
+                alertaCuenta.setTitle("CON QUE TE AYUDAMOS?")
+                        .setIcon(R.drawable.help_24)
+                        .setSingleChoiceItems(listaAyuda,-1, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                switch (i){
+                                    case 0:
+                                        linearPrincipal.setVisibility(View.INVISIBLE);
+                                        linearComoFunciona.setVisibility(View.VISIBLE);
+
+                                        Dialog ad = new Dialog(getContext());
+                                        ad.setTitle("Así funciona");
+                                        ad.requestWindowFeature(Window.FEATURE_RIGHT_ICON);
+                                        ad.setContentView(R.layout.dialog_producto);
+
+                                        ConocenosAdapter adapter = new ConocenosAdapter(llenarLista());
+
+                                        ViewPager2 pager = ad.findViewById(R.id.vpager);
+
+                                       // pager.
+
+                                        ad.show();
+                                        Toast.makeText(getContext()," 0 ",Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 1:
+                                        startActivity(new Intent(getContext(), IniciarSesion.class));
+                                        break;
+                                    case 2:
+                                        AlertDialog.Builder alertd = new AlertDialog.Builder(getContext());
+                                        alertd.setView(inflater.inflate(R.layout.conocenos,null));
+                                        alertd.show();
+                                        break;
+                                    case 3:
+                                        startActivity(new Intent(getContext(), AccionesFragments.class));
+                                        Toast.makeText(getContext(),"Dale a refrescar",Toast.LENGTH_LONG).show();
+                                        break;
+                                    default:
+                                        dialogInterface.cancel();
+                                        break;
+                                }
+                            }
+                        });
+                AlertDialog color = alertaCuenta.create();
+                color.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialogInterface) {
+                        color.getWindow().setBackgroundDrawableResource(R.color.colorFondo);
+                        color.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(getResources().getColor(R.color.grey));
+                    }
+                });
+                color.show();
+                Toast.makeText(getContext()," ayuda ",Toast.LENGTH_SHORT).show();
+            }
+        });
+        terminosL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alertaCuenta = new AlertDialog.Builder(getContext(),AlertDialog.THEME_DEVICE_DEFAULT_DARK);
+                alertaCuenta.setMessage(R.string.terminosCondiciones)
+                        .setCancelable(false)
+                        .setPositiveButton("Acepto",(dialogInterface, i) -> {
+                                dialogInterface.cancel();
+                            });
+                        alertaCuenta.setNegativeButton("No acepto", (dialogInterface, i) -> {
+                            startActivity(new Intent(getContext(), MainActivity.class));
+                            Toast.makeText(getContext(),"SINO ESTAS DE ACUERDO CON NUESTROS TÉRMINOS YCONDICIONES, NO ERES BIEN VENIDO AQUÍ",Toast.LENGTH_LONG).show();
+                        });
+
+                AlertDialog color = alertaCuenta.create();
+                color.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialogInterface) {
+                        color.getWindow().setBackgroundDrawableResource(R.color.colorFondo);
+                        color.getWindow().setGravity(Gravity.CENTER);
+                    }
+                });
+                color.show();
+                Toast.makeText(getContext(),"Términos ",Toast.LENGTH_SHORT).show();
+            }
+        });
+        unirmeL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), IniciarSesion.class));
+            }
+        });
+
+        return vista;
+    }
+    public List<ComoFunciona> llenarLista() {
+
+        List<ComoFunciona> listaComoFuncionas = new ArrayList<>();
+        listaComoFuncionas.add(new ComoFunciona("Paso 1 ", "Patatas fritas al horno, una alternativa saludable.", R.drawable.patatas));
+        listaComoFuncionas.add(new ComoFunciona("Paso 2 ", "Bizcocho de yogur y nata. Hecho con ingredientes caseros.", R.drawable.bizcocho));
+        listaComoFuncionas.add(new ComoFunciona("Paso 3 ", "Gazpacho andalúz, sopa valiente con varios ingredientes con vinagrer.", R.drawable.gazpacho));
+
+        return listaComoFuncionas;
     }
 }

@@ -21,4 +21,39 @@
     <string name="terminos">Acepto todos los terminos y condiciones</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="conocenos1">EMPIEZA A SALVAR COMIDA DELICIOSA</string>
+    <string name="conocenos01">
+        Soñamos con un planeta sin desperdicio de alimentos y, por eso, trabajamos cada día para hacerlo realidad. Nuestra app es la forma más directa para ayudar a reducir el desperdicio de comida. Simplemente, descarga la app, regístrate y empieza a salvar el excedente de comida de tus establecimientos más cercanos. Tu pack de comida siempre será sorpresa, a buen precio y estarás generando un impacto positivo directo en el planeta. ¡Salva ya tu pack!
+    </string>
+    <string name="conoceno2">SOLUCIÓN SENCILLA Y EFICAZ PARA TU NEGOCIO</string>
+    <string name="conoceno02">
+        Nos encanta colaborar cada vez con más establecimientos en la lucha contra el desperdicio de alimentos. Sea cual sea tu negocio, podemos ayudarte a recuperar costes y disminuir tu huella de carbono. Con Too Good To Go, ¡gana tu negocio y gana el planeta!
+    </string>
+    <string name="conocen3">GENERANDO UN CAMBIO POSITIVO Y REAL</string>
+    <string name="conocen03">
+        Para impactar y lograr un cambio real contra el desperdicio alimentario, desde Too Good To Go colaboramos muy de cerca con negocios, centros educativos, hogares, agentes y administraciones públicas. ¡Descubre aquí todas las acciones que estamos realizando!
+    </string>
+    <string name="terminosCondiciones">
+        1. INTRODUCCIÓN
+            Bienvenido a Too Good To Go ApS’ app, propiedad de Too Good To Go ApS, CVR-no. 37561304, Landskronagade 66 , 2100 København Ø, Denmark (“TGTG” o “Nosotros”).
+            La misión de TGTG consiste en concienciar de los desperdicios de alimentos en todo el mundo y reducirlos, poniendo a disposición de los consumidores el excedente de alimentos.
+            Proporcionamos al usuario final (“Cliente”) una herramienta para realizar sus reservas de excedente de alimentos y excedente de otros productos, incluyendo productos no especificados en “Packs Sorpresa” (“Productos”) en establecimientos alimentarios, restaurantes, supermercados, panaderías, hoteles, estaciones de servicio, etc. (“Establecimientos”) que se indican en nuestra plataforma (el “Servicio”).
+            Los presentes términos y condiciones (“Términos”) se aplican a cualquier reserva y venta de Productos que se realice a través de nuestras páginas web o app (“Plataforma”).
+            Las políticas de privacidad y de cookies de TGTG, disponibles en todo momento en la Plataforma, serán parte integrante de los presentes Términos y deberán aceptarse automáticamente a la aceptación de los mismos.
+        2. CONCEPTO TGTG
+            Los Productos están a disposición para ser reservados en la Plataforma, y los Clientes podrán reservar los mismos mediante una Orden de Reserva (según se prevé más adelante) en la Plataforma.
+            Los Productos quedarán reservados por el Cliente cuando TGTG lo confirme por medio de una Confirmación de Reserva (según se prevé más adelante).
+            Una vez el Cliente reserve el Producto, y el Establecimiento acepte la Reserva, el Cliente se compromete a estar presente en el Establecimiento en el momento de la Recogida (según se prevé más adelante) y, a su vez, el Establecimiento se compromete a ofrecer el Producto para su venta, conforme a lo especificado en los presentes Términos. Ambas partes tendrán derecho de cancelación según se prevé más adelante.
+        3. ACEPTACIÓN
+            En el momento de realizar un pedido en la Plataforma, el Cliente confirma que:
+            tiene capacidad legal para formalizar contratos vinculantes,
+            es un consumidor que compra con fines personales y
+            tiene 18 años y posee una tarjeta de crédito o débito válida u otro modo de pago disponible para efectuar pagos en la Plataforma.
+            Con la aceptación de estos Términos, el Cliente acepta que todos los contratos entre el Cliente y TGTG y cualquier información relacionada necesaria para la gestión de los Servicios se guarden por TGTG conforme a la política de privacidad de TGTG.
+        12. DERECHO DE RECLAMACIÓN
+            En caso de que se produzca una reclamación en relación con un Producto (incluyendo el “Pack Sorpresa” y su contenido), el Cliente deberá remitir la reclamación al Servicio de Atención al Cliente de TGTG antes de emprender cualquier otra acción. TGTG tramitará todas las reclamaciones (incluyendo aquellas respecto de los “Packs Sorpresa” y su contenido) según lo estime adecuado, y cualquier decisión de TGTG respecto de las reclamaciones corresponderá exclusivamente a TGTG.
+            En caso de que la intervención de TGTG no sea satisfactoria para el Cliente, los presentes Términos no limitarán los medios disponibles para que el Cliente resuelva la disputa que tuviera con el Establecimiento conforme a los protocolos fijados por el Establecimiento y las leyes que resulten de aplicación. Los Servicios están sujetos, entre otras, a la legislación sobre protección de consumidores y usuarios y a la legislación sobre los servicios de la sociedad de la información.
+            Todas las reclamaciones serán tramitadas exclusivamente por TGTG, y el Cliente formulará sus reclamaciones contra TGTG y no contra el Establecimiento.
+
+    </string>
 </resources>
