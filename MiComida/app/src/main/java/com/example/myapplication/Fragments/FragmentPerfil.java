@@ -2,6 +2,7 @@ package com.example.myapplication.Fragments;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,14 +14,12 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myapplication.Adapter.ConocenosAdapter;
-import com.example.myapplication.Entidades.ComoFunciona;
+import com.example.myapplication.Entidades.InstruccionesDialog;
 import com.example.myapplication.Home.AccionesFragments;
+import com.example.myapplication.Home.InstruccionesOnboarding;
 import com.example.myapplication.Home.IniciarSesion;
 import com.example.myapplication.Home.MainActivity;
 import com.example.myapplication.R;
@@ -35,10 +34,9 @@ import java.util.List;
  */
 public class FragmentPerfil extends Fragment {
 
-
-    View vista;
-    LinearLayout linearPrincipal,linearComoFunciona, cuentaL,conocenosL,ayudaL,terminosL,unirmeL;
+    LinearLayout cuentaL,conocenosL,ayudaL,terminosL,unirmeL;
     Dialog miDialogo;
+    Context c;ViewPager2 pager;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,18 +73,13 @@ public class FragmentPerfil extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        vista = inflater.inflate(R.layout.fragment_perfil, container, false);
+        View vista = inflater.inflate(R.layout.fragment_perfil, container, false);
 
         cuentaL = vista.findViewById(R.id.cuentaL);
         conocenosL = vista.findViewById(R.id.conocenosL);
         ayudaL = vista.findViewById(R.id.ayudaL);
         terminosL = vista.findViewById(R.id.terminosL);
         unirmeL = vista.findViewById(R.id.unirmeL);
-        linearPrincipal = vista.findViewById(R.id.linearPrincipal);
-        linearComoFunciona = vista.findViewById(R.id.linearComoFunciona);
-
-        linearPrincipal.setVisibility(View.VISIBLE);
-        linearComoFunciona.setVisibility(View.INVISIBLE);
 
         cuentaL.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,22 +118,7 @@ public class FragmentPerfil extends Fragment {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 switch (i){
                                     case 0:
-                                        linearPrincipal.setVisibility(View.INVISIBLE);
-                                        linearComoFunciona.setVisibility(View.VISIBLE);
-
-                                        Dialog ad = new Dialog(getContext());
-                                        ad.setTitle("Así funciona");
-                                        ad.requestWindowFeature(Window.FEATURE_RIGHT_ICON);
-                                        ad.setContentView(R.layout.dialog_producto);
-
-                                        ConocenosAdapter adapter = new ConocenosAdapter(llenarLista());
-
-                                        ViewPager2 pager = ad.findViewById(R.id.vpager);
-
-                                       // pager.
-
-                                        ad.show();
-                                        Toast.makeText(getContext()," 0 ",Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(getContext(), InstruccionesOnboarding.class));
                                         break;
                                     case 1:
                                         startActivity(new Intent(getContext(), IniciarSesion.class));
@@ -169,7 +147,6 @@ public class FragmentPerfil extends Fragment {
                     }
                 });
                 color.show();
-                Toast.makeText(getContext()," ayuda ",Toast.LENGTH_SHORT).show();
             }
         });
         terminosL.setOnClickListener(new View.OnClickListener() {
@@ -207,12 +184,12 @@ public class FragmentPerfil extends Fragment {
 
         return vista;
     }
-    public List<ComoFunciona> llenarLista() {
+    public List<InstruccionesDialog> llenarLista() {
 
-        List<ComoFunciona> listaComoFuncionas = new ArrayList<>();
-        listaComoFuncionas.add(new ComoFunciona("Paso 1 ", "Patatas fritas al horno, una alternativa saludable.", R.drawable.patatas));
-        listaComoFuncionas.add(new ComoFunciona("Paso 2 ", "Bizcocho de yogur y nata. Hecho con ingredientes caseros.", R.drawable.bizcocho));
-        listaComoFuncionas.add(new ComoFunciona("Paso 3 ", "Gazpacho andalúz, sopa valiente con varios ingredientes con vinagrer.", R.drawable.gazpacho));
+        List<InstruccionesDialog> listaComoFuncionas = new ArrayList<>();
+        listaComoFuncionas.add(new InstruccionesDialog("Paso 1 ", "Patatas fritas al horno, una alternativa saludable.", R.drawable.patatas));
+        listaComoFuncionas.add(new InstruccionesDialog("Paso 2 ", "Bizcocho de yogur y nata. Hecho con ingredientes caseros.", R.drawable.bizcocho));
+        listaComoFuncionas.add(new InstruccionesDialog("Paso 3 ", "Gazpacho andalúz, sopa valiente con varios ingredientes con vinagrer.", R.drawable.gazpacho));
 
         return listaComoFuncionas;
     }

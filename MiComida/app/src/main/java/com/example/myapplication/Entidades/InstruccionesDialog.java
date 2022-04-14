@@ -2,13 +2,13 @@ package com.example.myapplication.Entidades;
 
 import java.io.Serializable;
 
-public class ComoFunciona implements Serializable {
+public class InstruccionesDialog implements Serializable {
 
     private String titulo;
     private String descripcion;
     private int imagen;
 
-    public ComoFunciona(String titulo, String descripcion, int imagen) {
+    public InstruccionesDialog(String titulo, String descripcion, int imagen) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.imagen = imagen;
