@@ -18,7 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.myapplication.Entidades.InstruccionesDialog;
-import com.example.myapplication.Home.AccionesFragments;
+import com.example.myapplication.Adapter.ListaFragmentsAdapter;
 import com.example.myapplication.Home.InstruccionesOnboarding;
 import com.example.myapplication.Home.IniciarSesion;
 import com.example.myapplication.Home.MainActivity;
@@ -102,7 +102,7 @@ public class FragmentPerfil extends Fragment {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder ad = new AlertDialog.Builder(getContext());
-                ad.setView(inflater.inflate(R.layout.conocenos,null));
+                ad.setView(inflater.inflate(R.layout.dialog_conocenos,null));
                 ad.show();
             }
         });
@@ -125,11 +125,11 @@ public class FragmentPerfil extends Fragment {
                                         break;
                                     case 2:
                                         AlertDialog.Builder alertd = new AlertDialog.Builder(getContext());
-                                        alertd.setView(inflater.inflate(R.layout.conocenos,null));
+                                        alertd.setView(inflater.inflate(R.layout.dialog_conocenos,null));
                                         alertd.show();
                                         break;
                                     case 3:
-                                        startActivity(new Intent(getContext(), AccionesFragments.class));
+                                        startActivity(new Intent(getContext(), ListaFragmentsAdapter.class));
                                         Toast.makeText(getContext(),"Dale a refrescar",Toast.LENGTH_LONG).show();
                                         break;
                                     default:

@@ -13,7 +13,7 @@
             android:name=".Home.InstruccionesOnboarding"
             android:exported="false" />
         <activity
-            android:name=".Home.AccionesFragments"
+            android:name=".Adapter.ViewPagerAdapter"
             android:exported="false" />
         <activity
             android:name=".Home.IniciarSesion"

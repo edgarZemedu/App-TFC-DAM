@@ -9,13 +9,15 @@ public class Producto implements Serializable {
     private Date fechaLimite;
     private double precio;
     private int imagen;
+    private boolean favorito;
 
-    public Producto(String nombre,String descripcion, double precio, Date fechaLimite,  int imagen) {
+    public Producto(String nombre,String descripcion, double precio, Date fechaLimite,  int imagen,boolean favorito) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.fechaLimite = fechaLimite;
         this.imagen = imagen;
+        this.favorito = favorito;
     }
 
     public String getNombre() {
@@ -34,6 +36,14 @@ public class Producto implements Serializable {
         this.descripcion = descripcion;
     }
 
+    public Date getFechaLimite() {
+        return fechaLimite;
+    }
+
+    public void setFechaLimite(Date fechaLimite) {
+        this.fechaLimite = fechaLimite;
+    }
+
     public double getPrecio() {
         return precio;
     }
@@ -42,13 +52,19 @@ public class Producto implements Serializable {
         this.precio = precio;
     }
 
-
-
     public int getImagen() {
         return imagen;
     }
 
-    public void setImagenID(int imagen) {
+    public void setImagen(int imagen) {
         this.imagen = imagen;
+    }
+
+    public boolean getFavorito() {
+        return favorito;
+    }
+
+    public void setFavorito(boolean favorito) {
+        this.favorito = favorito;
     }
 }

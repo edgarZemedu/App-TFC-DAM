@@ -13,7 +13,7 @@ public class ViewPagerFragmetsAdapter extends FragmentPagerAdapter {
     private final ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
     private final ArrayList<String> fragmentTitle = new ArrayList<>();
 
-    public ViewPagerFragmetsAdapter(@NonNull FragmentManager fm, int behavior){
+    public ViewPagerFragmetsAdapter( FragmentManager fm, int behavior){
         super (fm, behavior);
     }
 
@@ -38,4 +38,5 @@ public class ViewPagerFragmetsAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return fragmentTitle.get(position);
     }
+
 }

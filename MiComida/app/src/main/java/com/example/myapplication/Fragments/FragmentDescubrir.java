@@ -1,6 +1,5 @@
 package com.example.myapplication.Fragments;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -12,11 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.example.myapplication.Adapter.ListaProductosAdapter;
+import com.example.myapplication.Adapter.ListaFragmentsAdapter;
 import com.example.myapplication.Entidades.Producto;
-import com.example.myapplication.Interfaz.InterfazFragments;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
@@ -45,20 +42,6 @@ public class FragmentDescubrir extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-    }
-
-    public void llenarLista(){
-
-        Date d = new Date("12/03/2022");
-        listaProductos.add(new Producto("Patatas ","Patatas fritas al horno,una alternativa saludable.",5.25, d, R.drawable.patatas));
-        listaProductos.add(new Producto("Bizcocho ","Bizcocho de yogur y nata. Hecho con ingredientes caseros.",20, d,R.drawable.bizcocho));
-        listaProductos.add(new Producto("Gazpacho ","Gazpacho andalúz, sopa valiente con varios ingredientes con vinagrer.",50, d,R.drawable.gazpacho));
-        listaProductos.add(new Producto("Gazpacho ","Gazpacho andalúz, sopa valiente con varios ingredientes con vinagrer. ",50, d, com.google.android.gms.base.R.drawable.common_google_signin_btn_icon_light));
-        listaProductos.add(new Producto("Gazpacho ","Gazpacho andalúz, sopa valiente con varios ingredientes con vinagrer.",50, d, com.google.android.gms.base.R.drawable.common_google_signin_btn_icon_light));
-        listaProductos.add(new Producto("Gazpacho ","Gazpacho andalúz, sopa valiente con varios ingredientes con vinagrer.",50, d, com.google.android.gms.base.R.drawable.common_google_signin_btn_icon_light));
-        listaProductos.add(new Producto("Gazpacho ","Gazpacho andalúz, sopa valiente con varios ingredientes con vinagrer.",50, d, com.google.android.gms.base.R.drawable.common_google_signin_btn_icon_light));
-
     }
 
     @Override
@@ -70,24 +53,10 @@ public class FragmentDescubrir extends Fragment {
         rvDescubrir = (RecyclerView) vista.findViewById(R.id.recyclerDescubrir);
         rvDescubrir.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        llenarLista();
+        listaProductos.addAll(ListaFragmentsAdapter.llenarLista());
 
-        ListaProductosAdapter adapter = new ListaProductosAdapter(listaProductos);
+        ListaFragmentsAdapter adapter = new ListaFragmentsAdapter(listaProductos);
         rvDescubrir.setAdapter(adapter);
-
-
-        /********************************/
-//        botonFavoritos = vista.findViewById(R.id.buttonFavoritos);
-//
-//        botonFavoritos.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Bundle bundle = new Bundle();
-//                bundle.putSerializable("productoFav",listaProductos.get(rvDescubrir.getChildAdapterPosition(vista)));
-//                getParentFragmentManager().setFragmentResult("key",bundle);
-//            }
-//        });
-
         return vista;
     }
 
@@ -104,7 +73,6 @@ public class FragmentDescubrir extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-
 
     }
 }

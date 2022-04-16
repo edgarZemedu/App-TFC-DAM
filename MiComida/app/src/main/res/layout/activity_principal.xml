@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home.AccionesFragments">
+    tools:context=".Adapter.ListaFragmentsAdapter">
 
 
     <com.google.android.material.tabs.TabLayout

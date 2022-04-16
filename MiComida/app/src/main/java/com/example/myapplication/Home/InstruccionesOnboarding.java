@@ -11,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.myapplication.Adapter.InstruccionesAdapter;
 import com.example.myapplication.Entidades.InstruccionesDialog;
@@ -31,7 +30,7 @@ public class InstruccionesOnboarding extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_conocenos);
+        setContentView(R.layout.dialog_instrucciones);
 
         bSaltar = findViewById(R.id.botonSaltarDialog);
 
@@ -75,7 +74,7 @@ public class InstruccionesOnboarding extends AppCompatActivity {
         /*
         Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'void android.widget.TextView.setTextColor(int)' on a null object reference
         */
-        listaIdicadores[posicion].setTextColor(getResources().getColor(R.color.activo,getApplicationContext().getTheme()));
+        //listaIdicadores[posicion].setTextColor(getResources().getColor(R.color.activo,getApplicationContext().getTheme()));
 
     }
 
