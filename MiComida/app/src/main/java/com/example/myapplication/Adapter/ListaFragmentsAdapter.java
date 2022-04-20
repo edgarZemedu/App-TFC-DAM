@@ -42,20 +42,6 @@ public class ListaFragmentsAdapter extends RecyclerView.Adapter<ListaFragmentsAd
         this.listaProductos = listaProductos;
     }
 
-    public static ArrayList<Producto> llenarLista(){
-
-        ArrayList<Producto> listaProductos = new ArrayList<>();
-        Date d = new Date("12/03/2022");
-        listaProductos.add(new Producto("Patatas ","Patatas fritas al horno,una alternativa saludable.",5.25, d, R.drawable.patatas,false));
-        listaProductos.add(new Producto("Bizcocho ","Bizcocho de yogur y nata. Hecho con ingredientes caseros.",20, d,R.drawable.bizcocho,false));
-        listaProductos.add(new Producto("Gazpacho ","Gazpacho andalúz, sopa valiente con varios ingredientes con vinagrer.",50, d,R.drawable.gazpacho,false));
-        listaProductos.add(new Producto("Gazpacho ","Gazpacho andalúz, sopa valiente con varios ingredientes con vinagrer. ",50, d, com.google.android.gms.base.R.drawable.common_google_signin_btn_icon_light,true));
-        listaProductos.add(new Producto("Gazpacho ","Gazpacho andalúz, sopa valiente con varios ingredientes con vinagrer.",50, d, com.google.android.gms.base.R.drawable.common_google_signin_btn_icon_light,false));
-        listaProductos.add(new Producto("Gazpacho ","Gazpacho andalúz, sopa valiente con varios ingredientes con vinagrer.",50, d, com.google.android.gms.base.R.drawable.common_google_signin_btn_icon_light,false));
-        listaProductos.add(new Producto("Gazpacho ","Gazpacho andalúz, sopa valiente con varios ingredientes con vinagrer.",50, d, com.google.android.gms.base.R.drawable.common_google_signin_btn_icon_light,false));
-
-        return listaProductos;
-    }
 
     @NonNull
     @Override

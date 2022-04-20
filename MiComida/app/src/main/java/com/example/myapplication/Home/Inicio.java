@@ -12,20 +12,20 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.myapplication.Adapter.InstruccionesAdapter;
-import com.example.myapplication.Entidades.InstruccionesDialog;
+import com.example.myapplication.Adapter.InicioAdapter;
+import com.example.myapplication.Entidades.InstruccionesInicio;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InstruccionesOnboarding extends AppCompatActivity {
+public class Inicio extends AppCompatActivity {
 
     ViewPager vp;
     LinearLayout lyIndicador;
     Button bSaltar;
     TextView[] listaIdicadores;
-    InstruccionesAdapter iAdapter;
+    InicioAdapter iAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,17 +45,18 @@ public class InstruccionesOnboarding extends AppCompatActivity {
         vp = (ViewPager) findViewById(R.id.vpagerIntroduccion);
         lyIndicador = (LinearLayout) findViewById(R.id.lyIndicador);
 
-        List<InstruccionesDialog> listaComoFuncionas = new ArrayList<>();
-        listaComoFuncionas.add(new InstruccionesDialog("Paso 1 ", "Publicas tu excedente de comida diario en la aplicación bajo coste en vez de tirar.", R.drawable.contruccion01));
-        listaComoFuncionas.add(new InstruccionesDialog("Paso 2 ", "Nuevos clientes descubren tu tienda y compran tu excedente a través de la app.", R.drawable.clientes));
-        listaComoFuncionas.add(new InstruccionesDialog("Paso 3 ", "Los clientes recogen los productos en tu local a la hora que tú prefieras.", R.drawable.localizar));
-        listaComoFuncionas.add(new InstruccionesDialog("Paso 4 ", "Rentabilizas tu excedente, vendes más productos y consigues clientes recurrentes.", R.drawable.rentabilizas));
+        List<InstruccionesInicio> listaComoFuncionas = new ArrayList<>();
+        listaComoFuncionas.add(new InstruccionesInicio("Paso 1 ", "Publicas tu excedente de comida diario en la aplicación bajo coste en vez de tirar.", R.drawable.contruccion01));
+        listaComoFuncionas.add(new InstruccionesInicio("Paso 2 ", "Nuevos clientes descubren tu tienda y compran tu excedente a través de la app.", R.drawable.clientes));
+        listaComoFuncionas.add(new InstruccionesInicio("Paso 3 ", "Los clientes recogen los productos en tu local a la hora que tú prefieras.", R.drawable.localizar));
+        listaComoFuncionas.add(new InstruccionesInicio("Paso 4 ", "Rentabilizas tu excedente, vendes más productos y consigues clientes recurrentes.", R.drawable.rentabilizas));
 
-        iAdapter = new InstruccionesAdapter(listaComoFuncionas, this);
+        iAdapter = new InicioAdapter(listaComoFuncionas, this);
 
         vp.setAdapter(iAdapter);
 
         añadirIndicador(0);
+        vp.addOnPageChangeListener(viewListener);
 
     }
 
@@ -63,7 +64,7 @@ public class InstruccionesOnboarding extends AppCompatActivity {
         listaIdicadores = new TextView[4];
         lyIndicador.removeAllViews();
 
-        for (int i=0; i > listaIdicadores.length; i=0){
+        for (int i=0; i < listaIdicadores.length; i++){
             listaIdicadores[i] = new TextView(this);
             listaIdicadores[i].setText(Html.fromHtml("&#8226;"));
             listaIdicadores[i].setTextSize(35);
@@ -71,10 +72,7 @@ public class InstruccionesOnboarding extends AppCompatActivity {
 
             lyIndicador.addView(listaIdicadores[i]);
         }
-        /*
-        Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'void android.widget.TextView.setTextColor(int)' on a null object reference
-        */
-        //listaIdicadores[posicion].setTextColor(getResources().getColor(R.color.activo,getApplicationContext().getTheme()));
+        listaIdicadores[posicion].setTextColor(getResources().getColor(R.color.activo,getApplicationContext().getTheme()));
 
     }
 
@@ -82,4 +80,19 @@ public class InstruccionesOnboarding extends AppCompatActivity {
         return vp.getCurrentItem() + 1;
     }
 
+    ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+        @Override
+        public void onPageSelected(int position) {
+
+            añadirIndicador(position);
+        }
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
+    };
 }

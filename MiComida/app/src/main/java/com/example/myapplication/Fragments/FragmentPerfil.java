@@ -17,15 +17,11 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.example.myapplication.Entidades.InstruccionesDialog;
 import com.example.myapplication.Adapter.ListaFragmentsAdapter;
-import com.example.myapplication.Home.InstruccionesOnboarding;
+import com.example.myapplication.Home.Inicio;
 import com.example.myapplication.Home.IniciarSesion;
 import com.example.myapplication.Home.MainActivity;
 import com.example.myapplication.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,35 +34,13 @@ public class FragmentPerfil extends Fragment {
     Dialog miDialogo;
     Context c;ViewPager2 pager;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     public FragmentPerfil() {
         // Required empty public constructor
-    }
-    // TODO: Rename and change types and number of parameters
-    public static FragmentPerfil newInstance(String param1, String param2) {
-        FragmentPerfil fragment = new FragmentPerfil();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -118,7 +92,7 @@ public class FragmentPerfil extends Fragment {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 switch (i){
                                     case 0:
-                                        startActivity(new Intent(getContext(), InstruccionesOnboarding.class));
+                                        startActivity(new Intent(getContext(), Inicio.class));
                                         break;
                                     case 1:
                                         startActivity(new Intent(getContext(), IniciarSesion.class));
@@ -183,14 +157,5 @@ public class FragmentPerfil extends Fragment {
         });
 
         return vista;
-    }
-    public List<InstruccionesDialog> llenarLista() {
-
-        List<InstruccionesDialog> listaComoFuncionas = new ArrayList<>();
-        listaComoFuncionas.add(new InstruccionesDialog("Paso 1 ", "Patatas fritas al horno, una alternativa saludable.", R.drawable.patatas));
-        listaComoFuncionas.add(new InstruccionesDialog("Paso 2 ", "Bizcocho de yogur y nata. Hecho con ingredientes caseros.", R.drawable.bizcocho));
-        listaComoFuncionas.add(new InstruccionesDialog("Paso 3 ", "Gazpacho andalúz, sopa valiente con varios ingredientes con vinagrer.", R.drawable.gazpacho));
-
-        return listaComoFuncionas;
     }
 }

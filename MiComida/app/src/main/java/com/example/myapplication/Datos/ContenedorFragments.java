@@ -1,31 +1,26 @@
-package com.example.myapplication.Adapter;
+package com.example.myapplication.Datos;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.myapplication.Adapter.ListaFragmentsAdapter;
+import com.example.myapplication.Adapter.ViewPagerFragmetsAdapter;
 import com.example.myapplication.Fragments.FragmentDescubrir;
 import com.example.myapplication.Fragments.FragmentFav;
 import com.example.myapplication.Fragments.FragmentPerfil;
 import com.example.myapplication.R;
 import com.google.android.material.tabs.TabLayout;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class ViewPagerAdapter extends AppCompatActivity {
+public class ContenedorFragments extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)  {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
@@ -35,9 +30,9 @@ public class ViewPagerAdapter extends AppCompatActivity {
         //añadir fragment
         ViewPagerFragmetsAdapter adaptadorVP = new ViewPagerFragmetsAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         //ViewPagerAdapter.ViewPagerFragmentsAdapter adaptadorVP = new ViewPagerAdapter.ViewPagerFragmentsAdapter(getSupportFragmentManager());
-        adaptadorVP.addFragment(new FragmentDescubrir(),"Descubrir");
-        adaptadorVP.addFragment(new FragmentFav(),"Favoritos");
-        adaptadorVP.addFragment(new FragmentPerfil(),"Perfil");
+        adaptadorVP.addFragment(new FragmentDescubrir(), "Descubrir");
+        adaptadorVP.addFragment(new FragmentFav(), "Favoritos");
+        adaptadorVP.addFragment(new FragmentPerfil(), "Perfil");
 
         viewPager.setAdapter(adaptadorVP);
         //viewPager.setOffscreenPageLimit(3);
@@ -80,35 +75,4 @@ public class ViewPagerAdapter extends AppCompatActivity {
         ListaFragmentsAdapter.llenarLista();
 
     }
-/*
-    class ViewPagerFragmentsAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-
-        public ViewPagerFragmentsAdapter(FragmentManager manager) {
-            super(manager);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragmentList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFragment(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
-        }
-    }
-
- */
 }

@@ -4,28 +4,24 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
-import com.example.myapplication.Entidades.InstruccionesDialog;
+import com.example.myapplication.Entidades.InstruccionesInicio;
 import com.example.myapplication.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class InstruccionesAdapter extends PagerAdapter {
+public class InicioAdapter extends PagerAdapter {
 
     Context c;
-    public List<InstruccionesDialog> listaComoFunciona;
+    public List<InstruccionesInicio> listaComoFunciona;
 
-    public InstruccionesAdapter(List<InstruccionesDialog> listaComoFunciona, Context c) {
+    public InicioAdapter(List<InstruccionesInicio> listaComoFunciona, Context c) {
         this.listaComoFunciona = listaComoFunciona;
         this.c = c;
     }

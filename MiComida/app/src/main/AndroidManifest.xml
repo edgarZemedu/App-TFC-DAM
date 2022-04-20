@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".Home.InstruccionesOnboarding"
+            android:name=".Home.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Adapter.ViewPagerAdapter"
+            android:name=".Datos.ContenedorFragments"
             android:exported="false" />
         <activity
             android:name=".Home.IniciarSesion"
             android:exported="false" />
         <activity
-            android:name=".Home.MainActivity"
+            android:name=".Home.Inicio"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

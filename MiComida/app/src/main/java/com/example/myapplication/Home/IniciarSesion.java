@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.myapplication.Adapter.ListaFragmentsAdapter;
-import com.example.myapplication.Adapter.ViewPagerAdapter;
+import com.example.myapplication.Datos.ContenedorFragments;
 import com.example.myapplication.R;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
@@ -88,7 +88,7 @@ public class IniciarSesion extends AppCompatActivity {
                     iniciar.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                        startActivity(new Intent(getApplicationContext(), ViewPagerAdapter.class));
+                            startActivity(new Intent(getApplicationContext(), ContenedorFragments.class));
                         }
                     });
                 }
